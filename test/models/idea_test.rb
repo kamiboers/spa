@@ -31,4 +31,28 @@ class IdeaTest < ActiveSupport::TestCase
     assert(idea_with_title_and_body.valid?)
   end
 
+  test "it is valid with a quality of low" do
+    ideas(:one).quality = "low"
+
+    assert(ideas(:one).valid?)
+  end
+
+  test "it is valid with a quality of medium" do
+    ideas(:one).quality = "medium"
+
+    assert(ideas(:one).valid?)
+  end
+
+  test "it is valid with a quality of high" do
+    ideas(:one).quality = "high"
+
+    assert(ideas(:one).valid?)
+  end
+
+  test "it is invalid with any other quality" do
+    ideas(:one).quality = "invalid"
+
+    refute(ideas(:one).valid?)
+  end
+
 end
