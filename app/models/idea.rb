@@ -1,5 +1,6 @@
 class Idea < ApplicationRecord
-  validates :title, :body, presence: true
+  validates :title, presence: true
+  validates :body, presence: true
 
-  enum quality [:low, :medium, :high]
+  enum quality: [:low, :medium, :high]
 end
