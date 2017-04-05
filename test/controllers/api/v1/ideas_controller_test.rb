@@ -96,5 +96,11 @@ class Api::V1::IdeasControllerTest < ActionDispatch::IntegrationTest
     assert_response 422
   end
 
+  test "#destroy removes an idea" do
+    idea = ideas(:one)
+    assert_difference('Idea.count', -1) do
+      delete api_v1_idea_url(idea)
+    end
+  end
 
 end
