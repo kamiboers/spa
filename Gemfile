@@ -41,6 +41,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'capybara'
   gem 'launchy'
+  gem 'poltergeist'
 end
 
 group :development do
