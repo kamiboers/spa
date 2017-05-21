@@ -25,8 +25,12 @@ $danger-color: rgb(196, 51, 49);
 }
 
 body, input {
-  font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 300;
+}
+
+input, textarea {
+  color: #262626;
 }
 
 .container {
@@ -52,12 +56,17 @@ body, input {
 
 .new-idea-input {
   background-color: $form-color;
-  border-width: 0;
+  border: 2px solid #f0f0f0;
+  border-radius: 1px;
   display: block;
-  font-size: 2em;
+  font-size: 1.5em;
   margin: 2px 0;
-  padding: 0;
+  padding: 3px;
   width: 100%;
+}
+
+.new-idea-body {
+  height: 250px;
 }
 
 input[type="submit"], button {
