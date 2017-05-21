@@ -4,7 +4,7 @@ class BasicTemplateTest < ActionDispatch::IntegrationTest
   
   test "it loads a page at the application root" do
     visit root_path
-    assert_equal 200, page.status_code
+    assert [200, 304].include? page.status_code
   end
 
   test "it has an <h1> tag with the content ideabox" do
@@ -36,5 +36,12 @@ class BasicTemplateTest < ActionDispatch::IntegrationTest
     visit root_path
     assert page.has_css? "form.new-idea input[type='submit'].new-idea-submit"
   end
+
+  test "switch to javascript driver does not error" do
+      use_javascript
+      visit root_path
+      # Do some stuff
+  end
+
 
 end

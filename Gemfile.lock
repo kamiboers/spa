@@ -61,6 +61,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    database_cleaner (1.6.1)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
@@ -183,6 +184,7 @@ DEPENDENCIES
   byebug
   capybara
   coffee-rails (~> 4.2)
+  database_cleaner
   jbuilder (~> 2.5)
   jquery-rails
   launchy
@@ -200,4 +202,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.12.5
+   1.14.6

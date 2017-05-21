@@ -1,21 +1,20 @@
 var newIdeaTitle, newIdeaBody;
 
 $(document).ready(function () {
-  newIdeaTitle = $('.new-idea-title');
-  newIdeaBody = $('.new-idea-body');
+  newIdeaTitleInput = $('.new-idea-title');
+  newIdeaBodyInput = $('.new-idea-body');
 
   $('.new-idea-submit').on('click', createIdea);
 });
 
 function createIdea(event) {
   event.preventDefault();
-  console.log(getNewIdea());
-  IdeaRepository.create(getNewIdea());
+  IdeaRepository.create(getNewIdeaInput());
 }
 
-function getNewIdea() {
+function getNewIdeaInput() {
   return {
-    title: newIdeaTitle.val(),
-    body: newIdeaBody.val()
+    title: newIdeaTitleInput.val(),
+    body: newIdeaBodyInput.val()
   };
 }
