@@ -18,3 +18,7 @@ function getNewIdeaInput() {
     body: newIdeaBodyInput.val()
   };
 }
+
+function displayErrors(response) {
+  alert(response.status)
+}
