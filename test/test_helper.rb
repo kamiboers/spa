@@ -16,7 +16,7 @@ class ActiveSupport::TestCase
   include Rails.application.routes.url_helpers
 
   DatabaseCleaner.strategy = :truncation
-  self.use_transactional_fixtures = false
+  self.use_transactional_tests = false
 
   def setup
     DatabaseCleaner.start

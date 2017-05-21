@@ -31,4 +31,11 @@ class LoadingIdeasTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "it shows an error saying that the title or body cannot be blank if missing" do
+    page.click_button "Submit Idea"
+    wait_for_ajax
+
+    assert page.find('.new-idea-messages').has_content? 'Title cannot be blank.'
+    assert page.find('.new-idea-messages').has_content? 'Body cannot be blank.'
+  end
 end

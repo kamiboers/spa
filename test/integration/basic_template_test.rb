@@ -4,7 +4,7 @@ class BasicTemplateTest < ActionDispatch::IntegrationTest
   
   test "it loads a page at the application root" do
     visit root_path
-    assert [200, 304].include? page.status_code
+    assert page.status_code == 200 || page.status_code == 304
   end
 
   test "it has an <h1> tag with the content ideabox" do
