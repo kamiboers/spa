@@ -4,9 +4,9 @@ $(document).ready(function () {
   newIdeaTitleInput = $('#new-idea-title')
   newIdeaBodyInput = $('#new-idea-body')
   errorMessageDiv = $('#new-idea-errors')
-  ideaList = $('#idea-list')
+  ideaList = $('#ideas-list')
 
-  $('.new-idea-submit').on('click', createIdea)
+  $('#new-idea-submit').on('click', createIdea)
 })
 
 function createIdea(event) {
@@ -36,11 +36,11 @@ function displayErrors(response) {
     messages.push(message)
   })
     messages = _.uniq(messages).join(', ') + '.'
-    errorMessageDiv.append(messages).addClass('error-present')
+    errorMessageDiv.append(messages).removeClass('hidden')
 }
 
 function clearErrorMessages() {
-  errorMessageDiv.text('').removeClass('error-present')
+  errorMessageDiv.text('').addClass('hidden')
 }
 
 function appendNewIdea(idea) {
@@ -48,9 +48,12 @@ function appendNewIdea(idea) {
 }
 
 function ideaTemplate(idea) {
-  var template = '<li class="idea idea-' + idea.id + '>' +
-    '<span class="idea-title">' + idea.title + '</span>' +
-    '<span class="idea-body">' + idea.body + '</span>' + '</li>'
+  var template = '<li class="idea idea-' + idea.id + '">' +
+    '<span class="list-row-element idea-title-check"><i class="fa fa-square-o" aria-hidden="true"></i></span>' +
+    '<span class="list-row-element idea-title">' + idea.title + '</span>' +
+    '<span class="list-row-element idea-title-caret"><i class="fa fa-angle-double-right fa-lg" aria-hidden="true"></i></span>' +
+    '<span class="list-row-element idea-body">' + idea.body + '</span>' +
+    '</li>'
 
   //   '<p class="idea-quality"><%= idea.quality %></p>' +
   //   '<div class="idea-qualities idea-buttons">' +

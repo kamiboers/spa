@@ -1,26 +1,24 @@
-<div class="container">
+<div class="main-content-container">
 
   <header>
     <h1>ideabox</h1>
   </header>
 
-  <section class="create-idea">
-    <form class="new-idea">
-      <div class="new-idea-field">
-        <label class="new-idea-label" style="display:none;">Idea Title</label>
-        <input type="text" class="new-idea-input" id="new-idea-title" name="idea[title]" placeholder="Idea Title">
+  <section class="new-idea-form-container">
+    <form class="new-idea-form">
+      <div class="new-idea-form-field">
+        <input type="text" class="new-idea-form-input" id="new-idea-title" name="idea[title]" placeholder="idea title">
       </div>
-      <div class="new-idea-field">
-        <label class="new-idea-label" style="display:none;">Idea Body</label>
-        <textarea class="new-idea-input" id="new-idea-body" name="idea[body]" placeholder="Idea Body"></textarea>
+      <div class="new-idea-form-field">
+        <textarea class="new-idea-form-input" id="new-idea-body" name="idea[body]" placeholder="idea body"></textarea>
       </div>
-      <div id="new-idea-errors"></div>
-      <input type="submit" class="new-idea-submit" value="Submit Idea">
+      <div class="new-idea-errors-wrapper"><div id="new-idea-errors" class="hidden"></div></div>
+      <button id="new-idea-submit">Submit Idea</button>
     </form>
   </section>
 
-  <section class="idea-container">
-    <ul id="idea-list"></ul>
+  <section class="ideas-container">
+    <ul id="ideas-list"></ul>
   </section>
 
 </div>

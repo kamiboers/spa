@@ -35,7 +35,7 @@ class LoadingIdeasTest < ActionDispatch::IntegrationTest
     page.click_button "Submit Idea"
     wait_for_ajax
 
-    assert page.find('.new-idea-messages').has_content? 'Title cannot be blank.'
-    assert page.find('.new-idea-messages').has_content? 'Body cannot be blank.'
+    assert page.find('#new-idea-errors').has_content? "Title can't be blank"
+    assert page.find('#new-idea-errors').has_content? "body can't be blank"
   end
 end

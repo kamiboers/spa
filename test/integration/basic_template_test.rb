@@ -14,27 +14,27 @@ class BasicTemplateTest < ActionDispatch::IntegrationTest
 
   test "it has an ideas container on the page" do
     visit root_path
-    assert page.has_css? ".idea-container"
+    assert page.has_css? ".ideas-container"
   end
 
   test "it has a form for creating new ideas" do
     visit root_path
-    assert page.has_css? "form.new-idea"
+    assert page.has_css? "form.new-idea-form"
   end
 
   test "form has an text input for a new idea title" do
     visit root_path
-    assert page.has_css? "form.new-idea input[type='text'].new-idea-title"
+    assert page.has_css? "form.new-idea-form input[type='text']#new-idea-title"
   end
 
   test "form has an text input for a new idea body" do
     visit root_path
-    assert page.has_css? "form.new-idea input[type='text'].new-idea-body"
+    assert page.has_css? "form.new-idea-form textarea#new-idea-body"
   end
 
   test "form has an input button" do
     visit root_path
-    assert page.has_css? "form.new-idea input[type='submit'].new-idea-submit"
+    assert page.has_css? "form.new-idea-form button#new-idea-submit"
   end
 
   test "switch to javascript driver does not error" do
