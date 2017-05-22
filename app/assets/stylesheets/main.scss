@@ -105,8 +105,17 @@ button {
   }
 }
 
+#ideas-list.hidden {
+  list-style-type: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s .5s, opacity .5s ease-in-out;
+}
 #ideas-list {
   list-style-type: none;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity .5s ease-in-out;
 }
 
 #ideas-list > li.idea {
@@ -129,7 +138,8 @@ button {
 
 #ideas-list span.idea-title {
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 500;
+  color: #262626;
 }
 #ideas-list span.idea-title-check,
 #ideas-list span.idea-title-caret {
@@ -169,4 +179,8 @@ button {
 }
 :-moz-placeholder { /* Firefox 18- */
   color: darken($form-color, 25);
+}
+
+#preload-hide {
+  visibility: hidden;
 }

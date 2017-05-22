@@ -38,4 +38,17 @@ class LoadingIdeasTest < ActionDispatch::IntegrationTest
     assert page.find('#new-idea-errors').has_content? "Title can't be blank"
     assert page.find('#new-idea-errors').has_content? "body can't be blank"
   end
+
+  test "it removes the error on subsequent submissions" do
+    page.click_button "Submit Idea"
+
+    wait_for_ajax
+
+    page.fill_in "idea[title]", with: "Special Idea"
+    page.fill_in "idea[body]", with: "World domination"
+    page.click_button "Submit Idea"
+
+    refute page.find('#new-idea-errors').has_content? 'Title and/or body cannot be blank.'
+  end
+  
 end

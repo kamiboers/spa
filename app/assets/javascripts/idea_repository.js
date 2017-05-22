@@ -7,5 +7,13 @@ var IdeaRepository = {
     .done(function (data) {
       appendNewIdea(data)
     })
+  },
+  all: function () {
+    $.get('/api/v1/ideas')
+    .done(function(data){
+      data.forEach(function(idea){
+        appendNewIdea(idea)
+      })
+    })
   }
 };

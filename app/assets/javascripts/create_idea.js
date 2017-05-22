@@ -5,7 +5,10 @@ $(document).ready(function () {
   newIdeaBodyInput = $('#new-idea-body')
   errorMessageDiv = $('#new-idea-errors')
   ideaList = $('#ideas-list')
+  var existingIdeas = []
 
+  IdeaRepository.all()
+  ideaList.delay(500).removeClass('hidden')
   $('#new-idea-submit').on('click', createIdea)
 })
 
@@ -64,4 +67,5 @@ function ideaTemplate(idea) {
   // '</div>'
   return template
 }
+
 
