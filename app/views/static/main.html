@@ -8,17 +8,19 @@
     <form class="new-idea">
       <div class="new-idea-field">
         <label class="new-idea-label" style="display:none;">Idea Title</label>
-        <input type="text" class="new-idea-title new-idea-input" name="idea[title]" placeholder="Idea Title">
+        <input type="text" class="new-idea-input" id="new-idea-title" name="idea[title]" placeholder="Idea Title">
       </div>
       <div class="new-idea-field">
         <label class="new-idea-label" style="display:none;">Idea Body</label>
-        <textarea class="new-idea-body new-idea-input" name="idea[body]" placeholder="Idea Body"></textarea>
+        <textarea class="new-idea-input" id="new-idea-body" name="idea[body]" placeholder="Idea Body"></textarea>
       </div>
-      <div class="new-idea-messages"></div>
+      <div id="new-idea-errors"></div>
       <input type="submit" class="new-idea-submit" value="Submit Idea">
     </form>
   </section>
 
-  <section class="idea-container"></section>
+  <section class="idea-container">
+    <ul id="idea-list"></ul>
+  </section>
 
 </div>

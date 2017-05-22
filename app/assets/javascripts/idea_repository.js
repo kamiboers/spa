@@ -4,6 +4,8 @@ var IdeaRepository = {
     .fail( function(jqXHR) {
       displayErrors(jqXHR)
     })
-    // .done(function (data) {alert(data)})
+    .done(function (data) {
+      appendNewIdea(data)
+    })
   }
 };
