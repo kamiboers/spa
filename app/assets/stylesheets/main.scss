@@ -13,16 +13,18 @@ $focus-color: #48919e;
   box-sizing: border-box;
 }
 
-body, input {
+body {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
 }
 
 input, textarea {
-  color: darken($form-color, 50);
+  font-weight: 500;
+  letter-spacing: 1.2;
+  color: darken($form-color, 65);
 }
 
-.main-content-container {
+.main-content {
   margin: auto;
   max-width: 600px;
 }
@@ -38,15 +40,10 @@ input, textarea {
   margin-bottom: 1em;
 }
 
-.new-idea-label {
-  display: block;
-  color: darken($form-color, 50);
-}
-
 .new-idea-form-input {
   background-color: #f0f0f0;
   border: 8px solid #f0f0f0;
-  border-radius: 1px;
+  border-radius: 2px;
   display: block;
   font-size: 1.5em;
   margin: 2px 0;
@@ -60,62 +57,40 @@ input, textarea {
 
 button {
   border: 0;
-  font-size: 1em;
+  font-size: 1.2em;
   color: white;
   background-color: $button-color;
-  padding: 1em;
-  &:hover {
+  padding: .65em;
+  &:hover, &:focus {
     background-color: lighten($button-color, 10);
-  }
-  &:focus {
-    background-color: lighten($button-color, 10);
-    border-color: $focus-color;
   }
   &:active {
-    background-color: lighten($button-color, 10);
-  }
-}
-
-.idea-quality {
-  text-transform: capitalize;
-  font-size: 0.8em;
-  &:before {
-    content: 'Quality: ';
-    font-weight: bold;
-  }
-}
-
-.idea-buttons {
-  font-size: 0.8em;
-  padding: 0.5em;
-  border: 1px solid #EEE;
-  margin-bottom: 0.5em;
-  & button {
-    margin-right: 1em;
+    background-color: darken($button-color, 10);
   }
 }
 
 .idea-delete {
+  font-size: 0.6em;
+  padding: 0.2em;
+  margin-bottom: 0.5em;
+}
+
+.delete-button {
+  float: right;
   background-color: $danger-color;
+  opacity: .7;
   &:hover {
-    background-color: lighten($danger-color, 10);
+    opacity: 1;
+    background-color: $danger-color;
   }
-  &:active {
-    background-color: darken($danger-color, 10);
+  &:active, &:focus {
+    opacity: 1;
+    background-color: darken($danger-color, 5);
   }
 }
 
-#ideas-list.hidden {
-  list-style-type: none;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s .5s, opacity .5s ease-in-out;
-}
 #ideas-list {
   list-style-type: none;
-  visibility: visible;
-  opacity: 1;
-  transition: opacity .5s ease-in-out;
 }
 
 #ideas-list > li.idea {
@@ -124,11 +99,11 @@ button {
   margin-left: -40px;
   padding: .5em;
   border: 5px solid #EEE;
+  height: auto;
 }
 
 #ideas-list > li .list-row-element {
   height: 100%;
-  // background-color: $focus-color;
   padding: 0px 10px;
 }
 
@@ -141,18 +116,20 @@ button {
   font-weight: 500;
   color: #262626;
 }
+
 #ideas-list span.idea-title-check,
 #ideas-list span.idea-title-caret {
   min-width: 20px;
 }
+
 #ideas-list span.idea-body {
+  display: block;
   display:none;
 }
 
 .new-idea-errors-wrapper {
   min-height: 25px;
   color: $danger-color;
-  font-weight: bold;
   margin-bottom: 2em;
 }
 
@@ -164,23 +141,21 @@ button {
 
 #new-idea-errors {
   visibility: visible;
+  font-weight: 600;
+  letter-spacing: 1.2;
   opacity: 1;
   transition: opacity .4s linear;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: darken($form-color, 25);
+  color: darken($form-color, 40);
 }
 ::-moz-placeholder { /* Firefox 19+ */
-  color: darken($form-color, 25);
+  color: darken($form-color, 40);
 }
 :-ms-input-placeholder { /* IE 10+ */
-  color: darken($form-color, 25);
+  color: darken($form-color, 40);
 }
 :-moz-placeholder { /* Firefox 18- */
-  color: darken($form-color, 25);
-}
-
-#preload-hide {
-  visibility: hidden;
+  color: darken($form-color, 40);
 }

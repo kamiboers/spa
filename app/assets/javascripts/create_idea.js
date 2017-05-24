@@ -46,17 +46,25 @@ function clearErrorMessages() {
   errorMessageDiv.text('').addClass('hidden')
 }
 
-function appendNewIdea(idea) {
+function prependIdea(idea) {
+  ideaList.prepend(ideaTemplate(idea))
+}
+
+function appendIdea(idea) {
   ideaList.append(ideaTemplate(idea))
 }
 
 function ideaTemplate(idea) {
-  var template = '<li class="idea idea-' + idea.id + '">' +
+  var template = 
+    // _.template(
+    '<li class="idea idea-' + idea.id + '">' +
     '<span class="list-row-element idea-title-check"><i class="fa fa-square-o" aria-hidden="true"></i></span>' +
     '<span class="list-row-element idea-title">' + idea.title + '</span>' +
     '<span class="list-row-element idea-title-caret"><i class="fa fa-angle-double-right fa-lg" aria-hidden="true"></i></span>' +
     '<span class="list-row-element idea-body">' + idea.body + '</span>' +
+    '<span class="list-row-element idea-delete"> <button class="delete-button" id="delete-' + idea.id + '"> DELETE </button></span>' +
     '</li>'
+    // )
 
   //   '<p class="idea-quality"><%= idea.quality %></p>' +
   //   '<div class="idea-qualities idea-buttons">' +

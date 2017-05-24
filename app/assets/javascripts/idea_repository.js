@@ -5,14 +5,14 @@ var IdeaRepository = {
       displayErrors(jqXHR)
     })
     .done(function (data) {
-      appendNewIdea(data)
+      prependIdea(data)
     })
   },
   all: function () {
     $.get('/api/v1/ideas')
     .done(function(data){
       data.forEach(function(idea){
-        appendNewIdea(idea)
+        appendIdea(idea)
       })
     })
   }
