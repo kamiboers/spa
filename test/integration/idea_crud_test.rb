@@ -17,7 +17,7 @@ class LoadingIdeasTest < ActionDispatch::IntegrationTest
     assert_difference 'Idea.count', 1 do
       page.fill_in "idea[title]", with: 'Special Idea'
       page.fill_in "idea[body]", with: 'World domination'
-      page.click_button "Submit Idea"
+      page.click_button "submit"
       wait_for_ajax
     end
   end
@@ -26,13 +26,13 @@ class LoadingIdeasTest < ActionDispatch::IntegrationTest
     assert_difference 'Idea.count', 0 do
       page.fill_in "idea[title]", with: ''
       page.fill_in "idea[body]", with: ''
-      page.click_button "Submit Idea"
+      page.click_button "submit"
       wait_for_ajax
     end
   end
 
   test "it shows an error saying that the title or body cannot be blank if missing" do
-    page.click_button "Submit Idea"
+    page.click_button "submit"
     wait_for_ajax
 
     assert page.find('#new-idea-errors').has_content? "Title can't be blank"
@@ -40,13 +40,13 @@ class LoadingIdeasTest < ActionDispatch::IntegrationTest
   end
 
   test "it removes the error on subsequent submissions" do
-    page.click_button "Submit Idea"
+    page.click_button "submit"
 
     wait_for_ajax
 
     page.fill_in "idea[title]", with: "Special Idea"
     page.fill_in "idea[body]", with: "World domination"
-    page.click_button "Submit Idea"
+    page.click_button "submit"
 
     refute page.find('#new-idea-errors').has_content? 'Title and/or body cannot be blank.'
   end

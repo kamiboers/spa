@@ -79,6 +79,8 @@ button {
   float: right;
   background-color: $danger-color;
   opacity: .7;
+  margin-top: .25em;
+
   &:hover {
     opacity: 1;
     background-color: $danger-color;
@@ -145,6 +147,15 @@ button {
   letter-spacing: 1.2;
   opacity: 1;
   transition: opacity .4s linear;
+}
+
+#ideas-list > li.delete-fade.idea {
+  opacity: .8;
+  font-size: 1em;
+  font-weight: bold;
+  color: $danger-color;
+  background-color: lighten($danger-color, 60);
+  border-color: lighten($danger-color, 45);
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */

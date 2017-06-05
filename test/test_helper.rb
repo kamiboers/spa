@@ -44,6 +44,10 @@ class ActiveSupport::TestCase
     end
   end
 
+  def wait_for_delay
+    sleep 1
+  end
+
   def finished_all_ajax_requests?
     page.evaluate_script('jQuery.active').zero?
   end

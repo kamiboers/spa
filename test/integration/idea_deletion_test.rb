@@ -14,9 +14,11 @@ class DeletingIdeasTest < ActionDispatch::IntegrationTest
 
   test "delete button removes an idea from the page" do
     assert_difference "page.find_all('.idea').count", -1 do
-      page.find_all(".idea-delete").first.click
+      page.find_all(".delete-button").first.click
 
       wait_for_ajax
+      # binding.pry
+      # wait_for_delay
     end
   end
 

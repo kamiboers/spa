@@ -18,6 +18,12 @@ function createIdea(event) {
   IdeaRepository.create(getNewIdeaInput())
 }
 
+function destroyIdea() {
+  event.preventDefault()
+  ideaId = this.id.split('-').pop()
+  IdeaRepository.destroy(ideaId)
+}
+
 function getNewIdeaInput() {
   return {
     title: newIdeaTitleInput.val(),
@@ -42,16 +48,36 @@ function displayErrors(response) {
     errorMessageDiv.append(messages).removeClass('hidden')
 }
 
+function assignAllClickFunctions() {
+  $('.delete-button').on('click', destroyIdea)
+}
+
+function assignRowClickFunctions(id) {
+  $('.idea-' + id + ' .delete-button').on('click', destroyIdea)
+}
+
 function clearErrorMessages() {
   errorMessageDiv.text('').addClass('hidden')
 }
 
+function clearNewIdeaInput() {
+    newIdeaTitleInput.val('')
+    newIdeaBodyInput.val('')
+}
+
 function prependIdea(idea) {
   ideaList.prepend(ideaTemplate(idea))
+  assignRowClickFunctions(idea.id)
 }
 
 function appendIdea(idea) {
   ideaList.append(ideaTemplate(idea))
+  assignRowClickFunctions(idea.id)
+}
+
+function removeIdea(id) {
+  $('.idea-'+id).addClass('delete-fade').text('idea deleted')
+  $('.idea-'+id).delay(500).fadeOut(500)
 }
 
 function ideaTemplate(idea) {
