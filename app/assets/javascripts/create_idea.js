@@ -5,7 +5,6 @@ $(document).ready(function () {
   newIdeaBodyInput = $('#new-idea-body')
   errorMessageDiv = $('#new-idea-errors')
   ideaList = $('#ideas-list')
-  var existingIdeas = []
 
   IdeaRepository.all()
   ideaList.delay(500).removeClass('hidden')
@@ -34,6 +33,11 @@ function getNewIdeaInput() {
 function displayErrors(response) {
   errorStatus = response.status
   errorResponse = JSON.parse(response.responseText).errors
+  var messages = concatenateErrors(errorResponse)
+  errorMessageDiv.append(messages).removeClass('hidden')
+}
+
+function concatenateErrors(errorResponse) {
   var messages = []
   first_message = true
   Object.keys(errorResponse).forEach(function(key){
@@ -44,8 +48,7 @@ function displayErrors(response) {
     }
     messages.push(message)
   })
-    messages = _.uniq(messages).join(', ') + '.'
-    errorMessageDiv.append(messages).removeClass('hidden')
+  return _.uniq(messages).join(', ') + '.'
 }
 
 function assignAllClickFunctions() {
@@ -91,14 +94,6 @@ function ideaTemplate(idea) {
     '<span class="list-row-element idea-delete"> <button class="delete-button" id="delete-' + idea.id + '"> DELETE </button></span>' +
     '</li>'
     // )
-
-  //   '<p class="idea-quality"><%= idea.quality %></p>' +
-  //   '<div class="idea-qualities idea-buttons">' +
-  //     '<button class="idea-promote">Promote</button>' +
-  //     '<button class="idea-demote">Demote</button>' +
-  //     '<button class="idea-delete">Delete</button>' +
-  //   '</div>' +
-  // '</div>'
   return template
 }
 
