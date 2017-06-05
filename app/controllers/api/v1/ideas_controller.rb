@@ -27,6 +27,17 @@ class Api::V1::IdeasController < ApplicationController
     end
   end
 
+  def toggle
+    idea = Idea.find(params[:id])
+    binding.pry
+    idea.toggle_completion
+    if not idea.errors
+      respond_with(idea, status: 200, location: api_v1_idea_path(idea))
+    else
+      render json: {errors: idea.errors}, status: 422
+    end
+  end
+
   def destroy
     Idea.find(params[:id]).destroy
     head :no_content

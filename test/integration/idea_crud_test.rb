@@ -41,7 +41,6 @@ class LoadingIdeasTest < ActionDispatch::IntegrationTest
 
   test "it removes the error on subsequent submissions" do
     page.click_button "submit"
-
     wait_for_ajax
 
     page.fill_in "idea[title]", with: "Special Idea"

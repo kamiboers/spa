@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :ideas
+      put '/ideas/toggle/:id', to: 'ideas#toggle'
     end   
   end
+  
 end
