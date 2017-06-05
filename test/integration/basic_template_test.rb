@@ -7,34 +7,34 @@ class BasicTemplateTest < ActionDispatch::IntegrationTest
     assert page.status_code == 200 || page.status_code == 304
   end
 
-  test "it has an <h1> tag with the content ideabox" do
+  test "it has an <h1> tag with the content taskbox" do
     visit root_path
-    assert page.find("h1").has_content? "ideabox"
+    assert page.find("h1").has_content? "taskbox"
   end
 
-  test "it has an ideas container on the page" do
+  test "it has an tasks container on the page" do
     visit root_path
-    assert page.has_css? ".ideas-container"
+    assert page.has_css? ".tasks-container"
   end
 
-  test "it has a form for creating new ideas" do
+  test "it has a form for creating new tasks" do
     visit root_path
-    assert page.has_css? "form.new-idea-form"
+    assert page.has_css? "form.new-task-form"
   end
 
-  test "form has an text input for a new idea title" do
+  test "form has an text input for a new task title" do
     visit root_path
-    assert page.has_css? "form.new-idea-form input[type='text']#new-idea-title"
+    assert page.has_css? "form.new-task-form input[type='text']#new-task-title"
   end
 
-  test "form has an text input for a new idea body" do
+  test "form has an text input for a new task body" do
     visit root_path
-    assert page.has_css? "form.new-idea-form textarea#new-idea-body"
+    assert page.has_css? "form.new-task-form textarea#new-task-body"
   end
 
   test "form has an input button" do
     visit root_path
-    assert page.has_css? "form.new-idea-form button#new-idea-submit"
+    assert page.has_css? "form.new-task-form button#new-task-submit"
   end
 
   test "switch to javascript driver does not error" do

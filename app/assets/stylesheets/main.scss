@@ -29,18 +29,18 @@ input, textarea {
   max-width: 600px;
 }
 
-.new-idea-form {
+.new-task-form {
   background-color: $form-color;
   border: 5px solid darken($form-color, 5);
   padding: 1em;
   margin-bottom: 2em;
 }
 
-.new-idea-form-field {
+.new-task-form-field {
   margin-bottom: 1em;
 }
 
-.new-idea-form-input {
+.new-task-form-input {
   background-color: #f0f0f0;
   border: 8px solid #f0f0f0;
   border-radius: 2px;
@@ -51,7 +51,7 @@ input, textarea {
   width: 100%;
 }
 
-#new-idea-body {
+#new-task-body {
   height: 250px;
 }
 
@@ -69,7 +69,7 @@ button {
   }
 }
 
-.idea-delete {
+.task-delete {
   font-size: 0.6em;
   padding: 0.2em;
   margin-bottom: 0.5em;
@@ -91,11 +91,11 @@ button {
   }
 }
 
-#ideas-list {
+#tasks-list {
   list-style-type: none;
 }
 
-#ideas-list > li.idea {
+#tasks-list > li.task {
   min-height: 24px;
   margin-bottom: 1em;
   margin-left: -40px;
@@ -104,44 +104,44 @@ button {
   height: auto;
 }
 
-#ideas-list > li .list-row-element {
+#tasks-list > li .list-row-element {
   height: 100%;
   padding: 0px 10px;
 }
 
-#ideas-list > li.idea .fa-lg {
+#tasks-list > li.task .fa-lg {
   vertical-align: -5%;
 }
 
-#ideas-list span.idea-title {
+#tasks-list span.task-title {
   font-size: 24px;
   font-weight: 500;
   color: #262626;
 }
 
-#ideas-list span.idea-title-check,
-#ideas-list span.idea-title-caret {
+#tasks-list span.task-title-check,
+#tasks-list span.task-title-caret {
   min-width: 20px;
 }
 
-#ideas-list span.idea-body {
+#tasks-list span.task-body {
   display: block;
   display:none;
 }
 
-.new-idea-errors-wrapper {
+.new-task-errors-wrapper {
   min-height: 25px;
   color: $danger-color;
   margin-bottom: 2em;
 }
 
-#new-idea-errors.hidden {
+#new-task-errors.hidden {
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s .4s, opacity .4s linear;
 }
 
-#new-idea-errors {
+#new-task-errors {
   visibility: visible;
   font-weight: 600;
   letter-spacing: 1.2;
@@ -149,13 +149,18 @@ button {
   transition: opacity .4s linear;
 }
 
-#ideas-list > li.delete-fade.idea {
+#tasks-list > li.delete-fade.task {
   opacity: .8;
   font-size: 1em;
   font-weight: bold;
   color: $danger-color;
   background-color: lighten($danger-color, 60);
   border-color: lighten($danger-color, 45);
+}
+
+.complete {
+  color:red;
+  text-decoration:line-through;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
